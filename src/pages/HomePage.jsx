@@ -1,12 +1,14 @@
 import { Loader } from 'components/Loader/Loader';
 import { MoviesGallery } from 'components/MoviesGallery/MoviesGallery';
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { getTrendingMovies } from 'services/api';
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     (async () => {
@@ -38,7 +40,7 @@ const HomePage = () => {
       )}
 
       {!error && !isLoading && movies.length > 0 && (
-        <MoviesGallery movies={movies} />
+        <MoviesGallery movies={movies} state={{ from: location }} />
       )}
     </>
   );

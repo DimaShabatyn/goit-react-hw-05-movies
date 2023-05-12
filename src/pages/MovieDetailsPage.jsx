@@ -83,12 +83,12 @@ const MovieDetailsPage = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="cast" state={location.state}>
+              <NavLink to="cast" state={{ from: location }}>
                 Cast
               </NavLink>
             </li>
             <li>
-              <NavLink to="reviews" state={location.state}>
+              <NavLink to="reviews" state={{ from: location }}>
                 Reviews
               </NavLink>
             </li>

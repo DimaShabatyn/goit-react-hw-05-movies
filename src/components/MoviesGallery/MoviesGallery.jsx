@@ -1,12 +1,19 @@
 import { MoviesGalleryItem } from 'components/MoviesGalleryItem/MoviesGalleryItem';
-import React from 'react'
+import React from 'react';
 import { List } from './MoviesGallery.styled';
+import { useLocation } from 'react-router-dom';
 
 export const MoviesGallery = ({ movies }) => {
-    // console.log(movies);
+  const location = useLocation();
   return (
     <List>
-    {movies.map(movie => <MoviesGalleryItem movie={movie} key={movie.id}/>)}
-  </List>
-  )
+      {movies.map(movie => (
+        <MoviesGalleryItem
+          movie={movie}
+          key={movie.id}
+          state={{ from: location }}
+        />
+      ))}
+    </List>
+  );
 };

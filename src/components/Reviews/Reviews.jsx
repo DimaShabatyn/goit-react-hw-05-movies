@@ -37,7 +37,7 @@ const Reviews = () => {
           Try again. Something went wrong!
         </h2>
       )}{' '}
-      {!error && !isLoading && reviews.length > 0 && (
+      {!error && !isLoading && reviews.length > 0 ? (
         <ul>
           {reviews.map(review => (
             <li key={review.id}>
@@ -46,6 +46,8 @@ const Reviews = () => {
             </li>
           ))}
         </ul>
+      ) : (
+        <h2>We don't have any reviews for this movie</h2>
       )}
     </>
   );

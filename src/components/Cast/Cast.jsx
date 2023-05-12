@@ -38,7 +38,7 @@ const Cast = () => {
           Try again. Something went wrong!
         </h2>
       )}{' '}
-      {!error && !isLoading && cast.length > 0 && (
+      {!error && !isLoading && cast.length > 0 ? (
         <ul>
           {cast.map(cast => (
             <li key={cast.id}>
@@ -56,6 +56,8 @@ const Cast = () => {
             </li>
           ))}
         </ul>
+      ) : (
+        <h2>We don't have any cast for this movie</h2>
       )}
     </>
   );

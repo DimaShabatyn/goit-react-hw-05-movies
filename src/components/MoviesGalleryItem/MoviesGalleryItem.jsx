@@ -8,7 +8,7 @@ export const MoviesGalleryItem = ({ movie }) => {
   const location = useLocation();
   return (
     <Item>
-      <Link to={`/movies/${id}`} state={location.state}>
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         <img
           src={
             poster_path
